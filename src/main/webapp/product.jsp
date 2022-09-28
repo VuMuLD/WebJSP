@@ -1,5 +1,6 @@
 <%@ page import="dao.SanPhamDAOImpl" %>
-<%@ page import="model.SanPham" %><%--
+<%@ page import="model.SanPham" %>
+<%@ page import="dao.DanhMucDAOImpl" %><%--
   Created by IntelliJ IDEA.
   User: vulm
   Date: 9/12/2022
@@ -36,36 +37,34 @@
 
 <%
     SanPhamDAOImpl sanPhamDAO = new SanPhamDAOImpl();
-
 %>
+
 
 <div class="col-sm-9 padding-right">
     <div class="features_items"><!--features_items-->
-        <h2 class="title text-center">Sản Phầm <%=request.getParameter("ma_danh_muc") %></h2>
+        <h2 class="title text-center">Sản Phầm</h2>
         <%for (SanPham sp : sanPhamDAO.getListProductByCategory(Integer.parseInt(request.getParameter("ma_danh_muc")))) {%>
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        <img src="images/home/product1.jpg" alt=""/>
-                        <h2>$56</h2>
-                        <p>Easy Polo Black Edition</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
-                            cart</a>
+                        <img src="<%=sp.getHinh_anh()%>" alt=""/>
+                        <h2><%=sp.getDon_gia()%>USD</h2>
+                        <p><%=sp.getTen_san_pham()%></p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ </a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
-                                cart</a>
+                            <h2><%=sp.getDon_gia()%>USD</h2>
+                            <p><%=sp.getTen_san_pham()%>n</p>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                         </div>
                     </div>
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm danh sách</a></li>
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Xem Chi tiết</a></li>
                     </ul>
                 </div>
             </div>

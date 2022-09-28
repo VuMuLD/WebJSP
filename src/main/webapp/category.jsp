@@ -34,14 +34,13 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-
+<%
+    DanhMucDAOImpl danhMucDAO = new DanhMucDAOImpl();
+%>
 <div class="col-sm-3">
     <div class="left-sidebar">
         <h2>Danh Mục</h2>
         <div><!--category-productsr-->
-            <%
-                DanhMucDAOImpl danhMucDAO = new DanhMucDAOImpl();
-            %>
             <%for (DanhMuc danh_muc_cha : danhMucDAO.getListDanhMucCha()) {%>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -56,7 +55,7 @@
                     <ul>
                         <%for (DanhMuc danh_muc_con : danhMucDAO.getListDanhMucCon(danh_muc_cha.getMa_danh_muc())) {%>
                         <li>
-                            <a href="index.jsp?ma_danh_muc=<%= danh_muc_con.getMa_danh_muc()%>%>"><%=danh_muc_con.getTen_danh_muc() %>
+                            <a href="index.jsp?ma_danh_muc=<%= danh_muc_con.getMa_danh_muc()%>"><%=danh_muc_con.getTen_danh_muc() %>
                             </a></li>
                         <%
                             }
@@ -68,7 +67,7 @@
                 }
             %>
         </div>
-        <div style="clear: both; margin-bottom: 10px"> </div>
+        <div style="clear: both; margin-bottom: 10px"></div>
     </div><!--/category-products-->
 </div>
 </body>
