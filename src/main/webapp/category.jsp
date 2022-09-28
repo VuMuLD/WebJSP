@@ -1,6 +1,7 @@
 <%@ page import="model.DanhMuc" %>
 <%@ page import="dao.DAO" %>
-<%@ page import="dao.DanhMucDAOImpl" %><%--
+<%@ page import="dao.DanhMucDAOImpl" %>
+<%@ page import="java.text.NumberFormat" %><%--
   Created by IntelliJ IDEA.
   User: vulm
   Date: 9/12/2022
@@ -55,7 +56,7 @@
                     <ul>
                         <%for (DanhMuc danh_muc_con : danhMucDAO.getListDanhMucCon(danh_muc_cha.getMa_danh_muc())) {%>
                         <li>
-                            <a href="index.jsp?ma_danh_muc=<%= danh_muc_con.getMa_danh_muc()%>"><%=danh_muc_con.getTen_danh_muc() %>
+                            <a href="index.jsp?ma_danh_muc=<%=danh_muc_con.getMa_danh_muc()%>"><%=danh_muc_con.getTen_danh_muc() %>
                             </a></li>
                         <%
                             }

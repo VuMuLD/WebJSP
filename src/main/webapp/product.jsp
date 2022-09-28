@@ -1,6 +1,7 @@
 <%@ page import="dao.SanPhamDAOImpl" %>
 <%@ page import="model.SanPham" %>
-<%@ page import="dao.DanhMucDAOImpl" %><%--
+<%@ page import="dao.DanhMucDAOImpl" %>
+<%@ page import="java.text.NumberFormat" %><%--
   Created by IntelliJ IDEA.
   User: vulm
   Date: 9/12/2022
@@ -37,6 +38,8 @@
 
 <%
     SanPhamDAOImpl sanPhamDAO = new SanPhamDAOImpl();
+    NumberFormat nf = NumberFormat.getInstance();
+    nf.setMinimumIntegerDigits(0);
 %>
 
 
@@ -49,13 +52,13 @@
                 <div class="single-products">
                     <div class="productinfo text-center">
                         <img src="<%=sp.getHinh_anh()%>" alt=""/>
-                        <h2><%=sp.getDon_gia()%>USD</h2>
+                        <h2><%=nf.format(sp.getDon_gia())%>USD</h2>
                         <p><%=sp.getTen_san_pham()%></p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ </a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
-                            <h2><%=sp.getDon_gia()%>USD</h2>
+                            <h2><%=nf.format(sp.getDon_gia())%>USD</h2>
                             <p><%=sp.getTen_san_pham()%>n</p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                         </div>
@@ -64,7 +67,7 @@
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
                         <li><a href="#"><i class="fa fa-plus-square"></i>Thêm danh sách</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Xem Chi tiết</a></li>
+                        <li><a href="detail.jsp?ma_san_pham=<%=sp.getMa_san_pham()%>"><i class="fa fa-plus-square"></i>Xem Chi tiết</a></li>
                     </ul>
                 </div>
             </div>

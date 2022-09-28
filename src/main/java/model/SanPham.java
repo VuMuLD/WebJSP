@@ -1,6 +1,6 @@
 package model;
 
-public class SanPham {
+public class SanPham implements Comparable<SanPham>{
 
     private int ma_san_pham;
     private DanhMuc ma_danh_muc;
@@ -84,5 +84,10 @@ public class SanPham {
 
     public void setGiam_gia(int giam_gia) {
         this.giam_gia = giam_gia;
+    }
+
+    @Override
+    public int compareTo(SanPham sp) {
+        return Integer.parseInt(String.valueOf(this.ma_san_pham)) - Integer.parseInt(String.valueOf(sp.ma_san_pham));
     }
 }
